@@ -1,1 +1,1 @@
-Run ./install to symlink dotifles
+Run ./install to symlink dotfiles

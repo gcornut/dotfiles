@@ -7,17 +7,8 @@ function installcask() {
 }
 
 installcask google-chrome
-installcask iterm2-beta
-installcask istat-menus
 installcask dropbox
 installcask the-unarchiver
-installcask sublime-text3
-installcask slack
 installcask vlc
-installcask steam
-installcask alfred
 installcask firefox
-installcask dash
-installcask bowtie
-installcask airfoil
 installcask bettertouchtool

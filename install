@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
-
 set -e
 
-CONFIG="install.conf.json"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+EXPECTED_DIR="$HOME/.dotfiles"
+[ "$BASEDIR" != "$EXPECTED_DIR" ] && {
+  echo "Error: dotfiles folder should be at '$EXPECTED_DIR'. Exiting."
+  exit 1
+}
+
+[[ $OSTYPE == *darwin* ]] && CONFIG="install-osx.conf.yaml"
+[[ $OSTYPE == *linux* ]] && CONFIG="install-linux.conf.yaml"
+[ -z "$CONFIG" ] && {
+  echo "Error: $OSTYPE not recognized. Exiting."
+  exit 1
+}
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"

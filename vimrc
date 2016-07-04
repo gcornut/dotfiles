@@ -41,7 +41,7 @@ set ignorecase
 " Highlight dynamically as pattern is typed
 set incsearch
 " Enable mouse in all modes
-set mouse=a
+" set mouse=a
 " Tabs to spaces
 set expandtab
 " 2 spaces
@@ -53,12 +53,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-gitgutter'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 Plug 'bling/vim-airline'
 Plug 'mhartington/oceanic-next'
-Plug 'evanmiller/nginx-vim-syntax'
+Plug 'bhurlow/vim-parinfer'
+" Plug 'evanmiller/nginx-vim-syntax'
 call plug#end()
 
 set t_Co=256
@@ -66,3 +67,4 @@ colorscheme OceanicNext
 set background=dark
 
 let g:airline_theme='oceanicnext'
+hi Normal ctermbg=none
