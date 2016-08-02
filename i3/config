@@ -32,6 +32,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec mutate #dmenu_run
@@ -42,7 +43,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
 # Activate lock screen
-bindsym $mod+l exec "playerctl pause; i3lock-fancy -g" 
+#bindsym $mod+l exec "playerctl pause; i3lock-fancy -g" 
+
+# Desktop Manager lock screen
+bindsym $mod+l exec "dm-tool lock" 
 
 # change focus
 #bindsym $mod+j focus left
@@ -98,7 +102,7 @@ set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
-set $ws5 "5"
+set $ws5 "5: "
 
 # switch to workspace
 bindsym $mod+ampersand workspace $ws1
@@ -169,7 +173,7 @@ set $fg-border #606060
 bar {
   #status_command i3status -c ~/.i3/status.conf
   mode hide
-#  i3bar_command i3bar -t
+  #i3bar_command i3bar -t
   colors {
     statusline $bg-text
     background $bg-color
@@ -193,18 +197,32 @@ gaps inner 5
 smart_borders on
 smart_gaps on
 
+for_window [class="chromium"] move to workspace $ws1
+workspace $ws1 output HDMI2
+exec chromium
+
+for_window [class="jetbrains-idea-ce"] move to workspace $ws2
+for_window [class="Atom"] move to workspace $ws2
+workspace $ws2 output HDMI2
+exec atom
+
+for_window [class="Xfce4-terminal"] move to workspace $ws3
+workspace $ws3 output VGA1
+exec i3-sensible-terminal
+exec i3-sensible-terminal
+
+for_window [class="Thunderbird"] move to workspace $ws4
+for_window [class="HipChat"] move to workspace $ws4
+workspace $ws4 output VGA1
+exec thunderbird
+
+for_window [class="Spotify"] move to workspace $ws5
+workspace $ws5 output VGA1
+exec spotify
+
+for_window [class="Gnomato"] floating enable
+
+# exec --no-startup-id xautolock -time 5 -locker i3lock-fancy -g
+# exec --no-startup-id xrandr --output HDMI2 --auto --left-of VGA1
 exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
-exec --no-startup-id xautolock -time 5 -locker i3lock-fancy -g
-
-#for_window [class="chromium-browser"] border pixel 1
-assign [instance="chromium-browser"] $ws1
-
-#for_window [class="jetbrains-idea-ce"] border pixel 1
-assign [class="jetbrains-idea-ce"] $ws2
-
-assign [class="Xfce4-terminal"] $ws3
-
-assign [class="Spotify"] $ws5
-
-# exec --no-startup-id xrandr --output HDMI2 --auto --right-of VGA1
