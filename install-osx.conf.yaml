@@ -5,8 +5,7 @@
     ~/.zshrc: zshrc
     ~/.zsh: zsh/
     ~/.tmux.conf: tmux.conf
-    ~/.vim: vim/
-    ~/.vimrc: vimrc
+    ~/.emacs.d: emacs.d/
     ~/.gitconfig: gitconfig
     ~/.gitignore: .gitignore
     ~/.gitglobalignore: gitglobalignore¬

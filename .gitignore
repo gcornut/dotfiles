@@ -13,4 +13,10 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 zsh/extra.zsh
-vim/.netrwhist
+
+# Emacs
+emacs.d/*
+!emacs.d/Cask
+!emacs.d/configuration.org
+!emacs.d/init.el
+!emacs.d/sensible-defaults

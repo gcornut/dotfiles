@@ -31,20 +31,19 @@ yaourt -S --noconfirm \
   echo "Done."
 }
 
-echo "Installing lightdm-pantheon-greeter..."
-yaourt -S --noconfirm lightdm-pantheon-greeter && {
+echo "Installing lightdm-gtk-greeter..."
+yaourt -S --noconfirm lightdm-gtk-greeter lightdm-gtk-greeter-settings && {
   LIGHTDM_CONF=/etc/lightdm/lightdm.conf
-  echo "cat '$LIGHTDM_CONF' | perl -pe 's|^\s*greeter-session.*$|greeter-session=lightdm-pantheon-greeter|g' > '$LIGHTDM_CONF-2'" | sudo sh
+  echo "cat '$LIGHTDM_CONF' | perl -pe 's|^\s*greeter-session.*$|greeter-session=lightdm-gtk-greeter|g' > '$LIGHTDM_CONF-2'" | sudo sh
   echo "mv '$LIGHTDM_CONF-2' '$LIGHTDM_CONF'" | sudo sh
-
-  # Set default wallpaper
-  sudo mkdir -p /usr/share/backgrounds/
-  sudo ln /usr/share/antergos/wallpapers/Nautilus_Fullscreen.jpg /usr/share/backgrounds/elementaryos-default
 }
 
 echo "Installing zsh & tmux..."
 yaourt -S --noconfirm zsh tmux
 chsh -s /bin/zsh
 
-echo "Installing vim packages..."
-vim +PlugInstall
+echo "Installing emacs & cask..."
+yaourt -S --noconfirm emacs cask
+cd ~/.emacs.d/
+cask install 
+cd -
