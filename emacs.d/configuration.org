@@ -1,6 +1,6 @@
 #+TITLE: Emacs configuration
 
-Forked from [[https://github.com/hrs/dotfiles][Hrs's dotfiles]] 
+Forked from [[https://github.com/hrs/dotfiles][Hrs's dotfiles]]
 
 
 * Use sensible-defaults.el
@@ -234,15 +234,15 @@ Use hc-zenburn theme
 
 Tweak some settings in graphical mode:
 - add window padding of 5 px
-- change fringe background color  
+- change fringe background color
 - change vertical frame border color
 - open neotree
 
 #+BEGIN_SRC emacs-lisp
   (if (display-graphic-p (selected-frame))
-      (add-hook 'window-setup-hook 
+      (add-hook 'window-setup-hook
                 (lambda ()
-                  ;; add inner window border 
+                  ;; add inner window border
                   (set-frame-parameter (selected-frame) 'internal-border-width 5)
                   (set-face-background 'fringe "#313131")
                   (set-face-attribute 'vertical-border nil :foreground "#222222")
@@ -318,6 +318,12 @@ package.
   (diminish-major-mode 'python-mode-hook "Py")
 #+END_SRC
 * Editing
+** Clipboard integration
+
+#+BEGIN_SRC emacs-lisp
+  (simpleclip-mode 1)
+#+END_SRC
+
 ** Always kill current buffer
 
 Assume that I always want to kill the current buffer when hitting =C-x k=.
@@ -331,6 +337,7 @@ Assume that I always want to kill the current buffer when hitting =C-x k=.
 #+BEGIN_SRC emacs-lisp
   (setq exec-path (append exec-path '("/usr/local/bin")))
 #+END_SRC
+
 ** Use =company-mode= everywhere
 
 #+BEGIN_SRC emacs-lisp
