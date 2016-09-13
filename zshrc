@@ -7,19 +7,24 @@ zplug "plugins/git-extra",  from:oh-my-zsh, if:"which git"
 zplug "plugins/rsync",  from:oh-my-zsh
 #zplug "plugins/tmux",  from:oh-my-zsh, if:"which tmux"
 zplug "plugins/common-aliases",  from:oh-my-zsh
+zplug "plugins/emacs",  from:oh-my-zsh
+
+# macOS specifics
 zplug "plugins/brew", from:oh-my-zsh, if:$isOSX
 zplug "plugins/brew-cask", from:oh-my-zsh, if:$isOSX
 #zplug "plugins/osx", from:oh-my-zsh, if:$isOSX
+
 #zplug "knu/z", of:z.sh, nice:10
 #zplug "rimraf/k", of:k.sh
-
-zplug "~/.zsh", of:"*.zsh", from:local
-zplug "~/.zsh", of:"extra.zsh", from:local, if:"[[ -f ~/.zsh/extra.zsh ]]"
 
 zplug "zsh-users/zsh-completions", nice: 17
 zplug "zsh-users/zsh-syntax-highlighting", nice:18
 zplug "zsh-users/zsh-history-substring-search", nice:19
-#zplug "zsh-users/zsh-autosuggestions", nice: 19 
+#zplug "zsh-users/zsh-autosuggestions", nice: 19
+
+# Local scripts
+zplug "~/.zsh", of:"*.zsh", from:local
+zplug "~/.zsh", of:"extra.zsh", from:local, if:"[[ -f ~/.zsh/extra.zsh ]]"
 
 DISABLE_AUTO_UPDATE="true"
 DISABLE_AUTO_TITLE="false"

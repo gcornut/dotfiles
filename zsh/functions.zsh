@@ -17,18 +17,20 @@ function calc() {
 }
 
 # Create a ssh tunnel
-# Usage: tunnel <host> <port>
-# result forwarded port => localhost:1<port>
+# Usage: tunnel <host> <remote port> [<local port>]
+# default local port => localhost:1<remote port>
 function tunnel() {
-  if [ $# -eq 2 ]; then
+  if [ $# -ge 2 ]; then
     echo "$2" | egrep -xq "[0-9]+" || {
       echo "Error: bad port number '$2'"
       return 1
     }
-    CMD="ssh $1 -f -N -L 1$2:localhost:$2"
-    echo "Openning tunnel: $CMD"
-    eval "$CMD" || return 1
-    echo "Success: forwarded port => localhost:1$2"
+    local lport=1${2}
+    [ -n "$3" ] && lport=$3
+    cmd="ssh $1 -f -N -L $lport:localhost:$2"
+    echo "Openning tunnel: $cmd"
+    eval "$cmd" || return 1
+    echo "Success: forwarded port => localhost:$lport"
   fi
 }
 
@@ -39,27 +41,34 @@ function mkd() {
 
 # List sorted size of a file or total size of a directory
 function fs() {
-  if du -b /dev/null > /dev/null 2>&1; then
-    local arg=-sb
-  else
-    local arg=-s
+  local du='du -bsh'
+  if hash gdu &> /dev/null; then
+    du='gdu -bsh' 
   fi
-  if [[ -n "$@" ]]; then
-    # List size of all files and dirs in arguments
-    du $arg -- "$@"
-  else
+  local sort='sort -h'
+  if hash gsort &> /dev/null; then
+    sort='gsort -h' 
+  fi
+  local dir=""
+  [ $# -eq 1 ] && [ -d "$1" ] && dir=$1
+  [ $# -eq 0 ] && dir="."
+  if [ -n "$dir" ]; then
     # List size of all files and dirs in current location
-    find -maxdepth 1 -name '*' | perl -pe 's|^(?:\.\/)?(.*)$|"$1"|g' | xargs -n1 du $arg
-  fi | \
+    find "$dir" -maxdepth 1 -name '*' |
+        perl -pe 's|^(?:\.\/)?(.*)$|"$1"|g' |
+        eval "xargs -n1 $du"
+  else
+    # List size of all files and dirs in arguments
+    eval "$du $@"
+  fi | eval $sort 
     # Sort by file size and reformat size to human readable
-    sort -n | numfmt --to=iec | perl -pe 's|\s|\t|'
 }
 
 # Use Git’s colored diff when available
 hash git &>/dev/null && {
   function diff() {
-		git diff --no-index --color-words "$@"
-	}
+    git diff --no-index --color-words "$@"
+  }
 }
 
 # `a` with no arguments opens the current directory in Atom Editor, otherwise
@@ -89,13 +98,13 @@ hash subl &>/dev/null && {
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o() {
-  local OPEN_CMD=""
-  hash xdg-open &>/dev/null && OPEN_CMD="xdg-open"
-  hash open &>/dev/null && OPEN_CMD="open"
+  local open=""
+  hash xdg-open &>/dev/null && open="xdg-open"
+  hash open &>/dev/null && open="open"
   if [ $# -eq 0 ]; then
-    "$OPEN_CMD" .
+    "$open" .
   else
-    "$OPEN_CMD" "$@"
+    "$open" "$@"
   fi
 }
 
@@ -115,4 +124,32 @@ function dataurl() {
     mimeType="${mimeType};charset=utf-8"
   fi
   echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+# Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
+function targz() {
+  local exclude=".DS_Store"
+  local tmpFile="${@%/}.tar.gz"
+  if du -b /dev/null > /dev/null 2>&1; then
+    local size=$(du -sb "${@%/}" | grep -o '[0-9]\+' | head -n1)
+  else
+    local size=$(du -sk "${@%/}" | grep -o '[0-9]\+' | head -n1)
+    local size=$((1000*size))
+  fi
+
+  local gz_cmd=""
+  #if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+  #  # the .tar file is smaller than 50 MB and Zopfli is available; use it
+  #  gz_cmd="zopfli"
+  #el
+  if hash pigz 2> /dev/null; then
+    gz_cmd="pigz"
+  else
+    gz_cmd="gzip"
+  fi
+
+  tar --exclude=$exclude -cf - "${@}" \
+    | pv -N "tar | ${gz_cmd}" -s $size \
+    | $gz_cmd -11 > "${tmpFile}" || return 1
+  echo "${tmpFile} created successfully."
 }
