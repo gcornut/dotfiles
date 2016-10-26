@@ -7,7 +7,6 @@ zplug "plugins/git-extra",  from:oh-my-zsh, if:"which git"
 zplug "plugins/rsync",  from:oh-my-zsh
 #zplug "plugins/tmux",  from:oh-my-zsh, if:"which tmux"
 zplug "plugins/common-aliases",  from:oh-my-zsh
-zplug "plugins/emacs",  from:oh-my-zsh
 
 # macOS specifics
 zplug "plugins/brew", from:oh-my-zsh, if:$isOSX

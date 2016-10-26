@@ -27,7 +27,7 @@ function tunnel() {
     }
     local lport=1${2}
     [ -n "$3" ] && lport=$3
-    cmd="ssh $1 -f -N -L $lport:localhost:$2"
+    cmd="ssh $1 -gNL ${lport}:localhost:$2"
     echo "Openning tunnel: $cmd"
     eval "$cmd" || return 1
     echo "Success: forwarded port => localhost:$lport"
@@ -43,11 +43,11 @@ function mkd() {
 function fs() {
   local du='du -bsh'
   if hash gdu &> /dev/null; then
-    du='gdu -bsh' 
+    du='gdu -bsh'
   fi
   local sort='sort -h'
   if hash gsort &> /dev/null; then
-    sort='gsort -h' 
+    sort='gsort -h'
   fi
   local dir=""
   [ $# -eq 1 ] && [ -d "$1" ] && dir=$1
@@ -60,7 +60,7 @@ function fs() {
   else
     # List size of all files and dirs in arguments
     eval "$du $@"
-  fi | eval $sort 
+  fi | eval $sort
     # Sort by file size and reformat size to human readable
 }
 
@@ -75,11 +75,11 @@ hash git &>/dev/null && {
 ## opens the given location
 hash atom &>/dev/null && {
   function a() {
-  	if [ $# -eq 0 ]; then
-  		atom .
-  	else
-  		atom "$@"
-  	fi
+       if [ $# -eq 0 ]; then
+               atom .
+       else
+               atom "$@"
+       fi
   }
 }
 
@@ -87,13 +87,14 @@ hash atom &>/dev/null && {
 ## opens the given location
 hash subl &>/dev/null && {
   function s() {
-  	if [ $# -eq 0 ]; then
-  		subl .
-  	else
-  		subl "$@"
-  	fi
+       if [ $# -eq 0 ]; then
+               subl .
+       else
+               subl "$@"
+       fi
   }
 }
+
 
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
