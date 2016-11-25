@@ -1,1 +1,4 @@
-Run ./install to symlink dotfiles
+
+1. $ git clone ... ~/.dotfiles
+2. $ cd .dotfiles
+3. $ ./install
