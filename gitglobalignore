@@ -4,6 +4,9 @@
 *.iml
 *.eml
 
+# Vim
+*.swp
+
 # Compiled Python files
 *.pyc
 
@@ -20,4 +23,5 @@ Thumbs.db
 .Trashes
 
 sjcomp.sh
+ephecomp.sh
 www/jsp/ephesis/ontology-data/
