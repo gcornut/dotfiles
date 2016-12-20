@@ -95,7 +95,6 @@ hash subl &>/dev/null && {
   }
 }
 
-
 # `o` with no arguments opens the current directory, otherwise opens the given
 # location
 function o() {
@@ -105,7 +104,7 @@ function o() {
   if [ $# -eq 0 ]; then
     "$open" .
   else
-    "$open" "$@"
+    echo "$@" | map "$open"
   fi
 }
 
@@ -153,4 +152,11 @@ function targz() {
     | pv -N "tar | ${gz_cmd}" -s $size \
     | $gz_cmd -11 > "${tmpFile}" || return 1
   echo "${tmpFile} created successfully."
+}
+
+# Use jq and less to pretty print and color highligth json files with pagination
+hash jq &>/dev/null && {
+  function lessjson() {
+    jq -C '.' "$@" | less -R
+  }
 }
