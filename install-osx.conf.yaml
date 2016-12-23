@@ -8,7 +8,7 @@
     ~/.emacs.d: emacs.d/
     ~/.gitconfig: gitconfig
     ~/.gitignore: .gitignore
-    ~/.gitglobalignore: gitglobalignore¬
+    ~/.gitglobalignore: gitglobalignore
 - shell:
     - - git submodule update --init --recursive
       - Installing submodules
