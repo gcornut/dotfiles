@@ -172,9 +172,9 @@ set $fg-text   #DDDDDD
 set $fg-border #606060
 
 bar {
-  #status_command i3status -c ~/.i3/status.conf
-  mode hide
-  #i3bar_command i3bar -t
+  status_command i3status -c ~/.config/i3/status.conf
+  mode dock
+  i3bar_command i3bar -t
   colors {
     statusline $bg-text
     background $bar-bg-color
@@ -182,7 +182,7 @@ bar {
     inactive_workspace $bg-color  $bg-color  $bg-text
   }
   position top
-  tray_output none
+  tray_output HDMI2
   height 24
   strip_workspace_numbers yes
 }
@@ -200,7 +200,7 @@ smart_gaps on
 
 for_window [class="Chromium"] move to workspace $ws1
 workspace $ws1 output HDMI2
-exec chromium
+#exec chromium
 
 for_window [class="jetbrains-idea-ce"] move to workspace $ws2
 for_window [class="Atom"] move to workspace $ws2
@@ -216,8 +216,8 @@ exec i3-sensible-terminal
 for_window [class="Thunderbird"] move to workspace $ws4
 for_window [class="HipChat"] move to workspace $ws4
 workspace $ws4 output VGA1
-exec thunderbird
-exec hipchat4
+#exec thunderbird
+#exec hipchat4
 
 for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Harmony"] move to workspace $ws5
@@ -225,8 +225,9 @@ workspace $ws5 output VGA1
 #exec spotify
 
 for_window [class="Gnomato"] floating enable
+for_window [class="Nitrogen"] floating enable
 
 # exec --no-startup-id xautolock -time 5 -locker i3lock-fancy -g
-# exec --no-startup-id xrandr --output HDMI2 --auto --left-of VGA1
+exec --no-startup-id xrandr --output HDMI2 --auto --left-of VGA1
 exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton --config ~/.config/i3/compton.conf

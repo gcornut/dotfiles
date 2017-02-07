@@ -21,3 +21,7 @@ yaourt -S --noconfirm emacs cask
 cd ~/.emacs.d/
 make
 cd -
+
+echo "Disable beep notification..."
+sudo rmmod pcspkr
+

@@ -1,2 +1,0 @@
-# Disable bell
-set -b                                 

@@ -151,3 +151,6 @@
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
 	default = current
 
+[user]
+	name = gcornut
+	email = gcornut@gmail.com

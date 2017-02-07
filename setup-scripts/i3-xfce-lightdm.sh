@@ -2,6 +2,9 @@
 set -e
 # Requires Antergos XFCE
 
+echo "Installing Vertex theme..."
+yaourt -S --noconfirm vertex-themes
+
 echo "Installing i3 and related software..."
 yaourt -S --noconfirm \
     i3-gaps i3status j4-dmenu-desktop i3ipc-glib-git \

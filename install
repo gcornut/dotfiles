@@ -8,8 +8,8 @@ EXPECTED_DIR="$HOME/.dotfiles"
   exit 1
 }
 
-[[ $OSTYPE == *darwin* ]] && CONFIG="install-osx.conf.yaml"
-[[ $OSTYPE == *linux* ]] && CONFIG="install-linux.conf.yaml"
+[[ $OSTYPE == *darwin* ]] && CONFIG="osx.conf.yaml"
+[[ $OSTYPE == *linux* ]] && CONFIG="linux.conf.yaml"
 [ -z "$CONFIG" ] && {
   echo "Error: $OSTYPE not recognized. Exiting."
   exit 1

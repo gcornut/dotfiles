@@ -4,11 +4,10 @@
     ~/.zplug: zplug/
     ~/.zshrc: zshrc
     ~/.zsh: zsh/
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: config/tmux.conf
     ~/.emacs.d: emacs.d/
-    ~/.gitconfig: gitconfig
-    ~/.gitignore: .gitignore
-    ~/.gitglobalignore: gitglobalignore
+    ~/.gitconfig: config/gitconfig
+    ~/.gitglobalignore: config/gitglobalignore
 - shell:
     - - git submodule update --init --recursive
       - Installing submodules
