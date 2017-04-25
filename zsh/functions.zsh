@@ -75,23 +75,11 @@ hash git &>/dev/null && {
 ## opens the given location
 hash atom &>/dev/null && {
   function a() {
-       if [ $# -eq 0 ]; then
-               atom .
-       else
-               atom "$@"
-       fi
-  }
-}
-
-# `s` with no arguments opens the current directory in Sublime Text Editor, otherwise
-## opens the given location
-hash subl &>/dev/null && {
-  function s() {
-       if [ $# -eq 0 ]; then
-               subl .
-       else
-               subl "$@"
-       fi
+    if [ $# -eq 0 ]; then
+      atom .
+    else
+      atom "$@"
+    fi
   }
 }
 
@@ -102,9 +90,11 @@ function o() {
   hash xdg-open &>/dev/null && open="xdg-open"
   hash open &>/dev/null && open="open"
   if [ $# -eq 0 ]; then
-    "$open" .
+    nohup "$open" . >/dev/null 2>&1 &
   else
-    echo "$@" | map "$open"
+    for arg in $@; do
+      nohup "$open" $arg >/dev/null 2>&1 &
+    done
   fi
 }
 
