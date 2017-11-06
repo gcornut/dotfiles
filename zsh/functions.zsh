@@ -17,7 +17,7 @@ function calc() {
 }
 
 # Create a ssh tunnel
-# Usage: tunnel <host> <remote port> [<local port>]
+# Usage: tunnel <host> <remote port> [<local port>] [bind adrs]
 # default local port => localhost:1<remote port>
 function tunnel() {
   if [ $# -ge 2 ]; then
@@ -27,7 +27,9 @@ function tunnel() {
     }
     local lport=1${2}
     [ -n "$3" ] && lport=$3
-    cmd="ssh $1 -gNL ${lport}:localhost:$2"
+    local badrs=localhost
+    [ -n "$4" ] && badrs=$4
+    cmd="ssh $1 -gNL ${lport}:${badrs}:$2"
     echo "Openning tunnel: $cmd"
     eval "$cmd" || return 1
     echo "Success: forwarded port => localhost:$lport"
@@ -79,6 +81,16 @@ hash atom &>/dev/null && {
       atom .
     else
       atom "$@"
+    fi
+  }
+}
+
+hash subl &>/dev/null && {
+  function s() {
+    if [ $# -eq 0 ]; then
+      subl .
+    else
+      subl "$@"
     fi
   }
 }

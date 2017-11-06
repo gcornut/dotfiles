@@ -1,0 +1,50 @@
+# Base i3 theme, i3 gaps &  i3 bar config
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+
+# font pango:DejaVu Sans Mono 10
+
+font pango:System San Francisco Display 11
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+set $bg-color  #222222
+set $bar-bg-color  #000000
+set $bg-text   #999999
+set $fg-color  #505050
+set $fg-text   #DDDDDD
+set $fg-border #606060
+
+bar {
+  status_command i3status -c ~/.config/i3/status.conf
+  mode dock
+  i3bar_command i3bar -t
+  colors {
+    statusline $bg-text
+    background $bar-bg-color
+    focused_workspace  $fg-border $fg-color $fg-text
+    inactive_workspace $bg-color  $bg-color  $bg-text
+  }
+  position top
+  tray_output HDMI2
+  height 24
+  strip_workspace_numbers yes
+}
+
+# class                 border     backgr.   text     indicator  child_border
+client.unfocused        $bg-color  $bg-color $bg-text $bg-color
+client.focused_inactive $bg-color  $bg-color $fg-text $fg-color
+client.focused          $fg-border $fg-color $fg-text $fg-color
+
+new_window pixel 3
+hide_edge_borders none
+gaps inner 5
+smart_borders on
+smart_gaps on

@@ -6,13 +6,15 @@
     ~/.zsh: zsh/
     ~/.tmux.conf: config/tmux.conf
     ~/.config/i3: config/i3/
+    ~/.config/rofi: config/rofi/
+    ~/.config/htop/htoprc: config/htop/htoprc
     ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
+    ~/.atom/keymap.cson: config/atom/keymap.cson
     ~/.gtkrc-2.0: config/gtkrc-2.0
     ~/.fonts: fonts/
     ~/.screenrc: config/screenrc
     ~/.gitconfig: config/gitconfig
     ~/.gitglobalignore: config/gitglobalignore
-    ~/.Xresources: config/Xresources
 - shell:
     - - git submodule update --init --recursive
       - Installing submodules...

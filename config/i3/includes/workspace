@@ -1,0 +1,47 @@
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+
+# switch to workspace
+bindsym $mod+ampersand workspace $ws1; layout tabbed
+bindsym $mod+eacute workspace $ws2; layout tabbed
+bindsym $mod+quotedbl workspace $ws3
+bindsym $mod+apostrophe workspace $ws4; layout tabbed
+bindsym $mod+parenleft workspace $ws5; layout tabbed
+bindsym $mod+minus workspace 6
+bindsym $mod+egrave workspace 7
+bindsym $mod+underscore workspace 8
+bindsym $mod+ccedilla workspace 9
+bindsym $mod+agrave workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+ampersand move container to workspace $ws1
+bindsym $mod+Shift+eacute move container to workspace $ws2
+bindsym $mod+Shift+quotedbl move container to workspace $ws3
+bindsym $mod+Shift+apostrophe move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+minus move container to workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+underscore move container to workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10
+
+for_window [class="Firefox"] move to workspace $ws1
+for_window [class="Chromium"] move to workspace $ws1
+
+for_window [class="jetbrains-idea-ce"] move to workspace $ws2
+for_window [class="jetbrains-pycharm-ce"] move to workspace $ws2
+for_window [class="Atom"] move to workspace $ws2
+
+for_window [class="Xfce4-terminal"] move to workspace $ws3
+#for_window [class="jetbrains-idea-ce" title="^Debug -"] move to workspace $ws3
+
+for_window [class="Thunderbird"] move to workspace $ws4
+for_window [class="HipChat"] move to workspace $ws4
+
+for_window [class="Spotify"] move to workspace $ws5
+for_window [class="Harmony"] move to workspace $ws5
+
+for_window [class="Nitrogen"] floating enable

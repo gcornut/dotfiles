@@ -1,0 +1,11 @@
+# Laptop config
+
+# Restore nitrogen wallpaper
+exec --no-startup-id nitrogen --restore
+
+# Start compton compositor
+exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
+
+# Start two terminals
+exec i3-sensible-terminal
+exec i3-sensible-terminal

@@ -1,0 +1,17 @@
+
+'atom-workspace atom-text-editor:not([mini])':
+  'alt-down': 'editor:move-line-down'
+  'alt-up': 'editor:move-line-up'
+  'ctrl-d': 'editor:delete-line'
+  'ctrl-alt-down': 'editor:duplicate-lines'
+  'ctrl-r': 'find-and-replace:select-next'
+  #'ctrl-w': 'core:close'
+  #'ctrl-w q': 'unset!'
+  #'ctrl-w c': 'unset!'
+  #'ctrl-w crtl-c': 'unset!'
+  #'ctrl-w crtl-q': 'unset!'
+
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'ctrl-c': 'core:copy'
+  'ctrl-v': 'core:paste'
+  #'ctrl-w': 'core:close'

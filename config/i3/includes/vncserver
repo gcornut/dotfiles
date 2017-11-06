@@ -1,0 +1,29 @@
+# vncserver config
+
+# switch to workspace
+bindcode $mod+Shift+16 workspace $ws1; layout tabbed
+bindcode $mod+255 workspace $ws2; layout tabbed
+bindcode $mod+Shift+48 workspace $ws3
+bindcode $mod+48 workspace $ws4; layout tabbed
+bindcode $mod+187 workspace $ws5; layout tabbed
+#bindsym $mod+minus workspace 6
+#bindsym $mod+egrave workspace 7
+#bindsym $mod+underscore workspace 8
+#bindsym $mod+ccedilla workspace 9
+#bindsym $mod+agrave workspace 10
+
+# move focused container to workspace
+bindcode $mod+Control+Shift+16 move container to workspace $ws1
+bindcode $mod+Control+255 move container to workspace $ws2
+bindcode $mod+Control+Shift+48 move container to workspace $ws3
+bindcode $mod+Control+48 move container to workspace $ws4
+bindcode $mod+Control+187 move container to workspace $ws5
+#bindsym $mod+Shift+minus move container to workspace 6
+#bindsym $mod+Shift+egrave move container to workspace 7
+#bindsym $mod+Shift+underscore move container to workspace 8
+#bindsym $mod+Shift+ccedilla move container to workspace 9
+#bindsym $mod+Shift+agrave move container to workspace 10
+
+# Start two terminals
+exec i3-sensible-terminal
+exec i3-sensible-terminal
