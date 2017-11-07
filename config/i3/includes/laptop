@@ -9,3 +9,8 @@ exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 # Start two terminals
 exec i3-sensible-terminal
 exec i3-sensible-terminal
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nm-applet
+exec --no-startup-id synergy
+

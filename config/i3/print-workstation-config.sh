@@ -1,3 +1,3 @@
 #!/usr/bin/sh
 
-cat includes/base-keybindings includes/workspace includes/base-theme includes/workstation
+cat includes/large-screen-vars includes/base-keybindings includes/workspace includes/base-theme includes/workstation

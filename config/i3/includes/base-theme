@@ -15,25 +15,25 @@ font pango:System San Francisco Display 11
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-set $bg-color  #222222
+set $bg-color      #222222
 set $bar-bg-color  #000000
-set $bg-text   #999999
-set $fg-color  #505050
-set $fg-text   #DDDDDD
-set $fg-border #606060
+set $bg-text       #999999
+set $fg-color      #505050
+set $fg-text       #DDDDDD
+set $fg-border     #606060
 
 bar {
-  status_command i3status -c ~/.config/i3/status.conf
-  mode dock
+  status_command i3status -c $i3status-conf
+  mode $bar-mode
   i3bar_command i3bar -t
   colors {
-    statusline $bg-text
-    background $bar-bg-color
+    statusline         $bg-text
+    background         $bar-bg-color
     focused_workspace  $fg-border $fg-color $fg-text
     inactive_workspace $bg-color  $bg-color  $bg-text
   }
   position top
-  tray_output HDMI2
+  tray_output primary
   height 24
   strip_workspace_numbers yes
 }
@@ -43,8 +43,8 @@ client.unfocused        $bg-color  $bg-color $bg-text $bg-color
 client.focused_inactive $bg-color  $bg-color $fg-text $fg-color
 client.focused          $fg-border $fg-color $fg-text $fg-color
 
-new_window pixel 3
+new_window pixel $border-size
 hide_edge_borders none
-gaps inner 5
+gaps inner $gap-size
 smart_borders on
 smart_gaps on

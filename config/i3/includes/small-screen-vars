@@ -1,0 +1,4 @@
+set  $border-size    2
+set  $gap-size       3
+set  $bar-mode       hide
+set  $i3status-conf  ~/.config/i3/status.conf
