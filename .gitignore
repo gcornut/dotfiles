@@ -14,9 +14,11 @@ Thumbs.db
 .Trashes
 zsh/extra.zsh
 
-# Emacs
-emacs.d/*
-!emacs.d/Cask
-!emacs.d/configuration.org
-!emacs.d/init.el
-!emacs.d/sensible-defaults
+/Downloads
+/.cache
+/.bck
+/.local/share/Trash
+*.log
+
+fonts/.uuid
+

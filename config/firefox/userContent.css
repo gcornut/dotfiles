@@ -1,0 +1,71 @@
+/*
+* Use this css file to eliminate problems in Firefox
+* when using dark themes that create dark on dark
+* input boxes, selection menus and buttons. Put this
+* in the ../firefox/default/chrome folder or your
+* individual user firefox profile chrome folder.
+*/
+input {
+	border: 1px solid gray;
+	border-radius: 2px;
+	background-color: white;
+	color: black;
+	-moz-appearance: none !important;
+}
+textarea {
+	border: 1px solid gray;
+	border-radius: 2px;
+	background-color: white;
+	color: black;
+	-moz-appearance: none !important;
+}
+select {
+	border: 1px solid gray;
+	border-radius: 2px;
+	background-color: white;
+	color: black;
+	-moz-appearance: none !important;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QsWDhcK/KYbVwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAsElEQVQ4y+XTMQrCQBCF4S8SCwU7jyCCh7IxprCwEw/kddQrqCjiHSzUZoQQoklafc3C7j+Ptzuz/L3GGNQwA0yamM1wx/oL08cKe2RIPoEjbPHEDUv0Skwv9m/BbaOuUkkkPBdMF5HonWxRMLsEn9Rde4pTyXRYMjti3sQMUuQ4RPEVm1ifsZ8H11jdKDqGyaOQLI/z1kqji5fCm2Vtk1U1KsOubkTaqBOj0fmdv/sCPc0qxu71HVkAAAAASUVORK5CYII=);
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 20px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+}
+input[type="radio"] {
+	border-radius: 20px;
+}
+input[type="radio"]:checked {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QsWDTkJbO79mAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAkElEQVQoz+XQMQ4BARQE0IdNhEpQqhXuodg4gGM4izvotApHcAGr2VayDSqUNF8imxVbM8lPfn5mfmaG/0Pjwz3FGFMckWFZ52GKDQrccMYeizKxVSGeYY4hErTRjf2C/EVMKsSTIL/H6mBQJjYrxFnYhUfMHac6tvsYoRfOrlHaGqtv4jyyHcLZDtu6bf86ntCTGNciGT9qAAAAAElFTkSuQmCC);
+	background-position-x: -1px;
+	background-position-y: -1px;
+}
+input[type="checkbox"]:checked {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QsWDgUEY+pGgwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAhElEQVQoz9XRIQ7CQBRF0SNqqKhFVJDUo2pZBBLfPXRBSILDInBsgR2wjGKmyWRCm6GqvGTUv/fl5w//kh2aJeIeV9zQfgNK1DPiEN4Z2xio0OOCw4z4DtxmBAp0YTDgHgqmxCpd7YhXBD7xyBHHnJKCbHGqIFtMC34W4xt0S8T4F1aYD04uKYp9Bf6nAAAAAElFTkSuQmCC);
+	background-position-x: -1px;
+	background-position-y: -1px;
+}
+*|*::-moz-radio {
+	background-color: white;
+	-moz-appearance: none !important;
+}
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+	border: 1px solid gray;
+	border-radius: 2px;
+	background-color: lightgray;
+	color: black;
+	-moz-appearance: none !important;
+}
+body {
+	background-color: white;
+	color: black;
+	display: block;
+	margin: 8px;
+	-moz-appearance: none !important;
+}

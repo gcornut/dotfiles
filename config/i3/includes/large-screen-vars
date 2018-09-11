@@ -1,4 +1,5 @@
 set  $border-size    3
 set  $gap-size       5
+set  $bar-position   top
 set  $bar-mode       dock
 set  $i3status-conf  ~/.config/i3/status.conf

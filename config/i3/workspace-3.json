@@ -1,0 +1,132 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            // tabbed split container with 4 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 410,
+                       "width": 657,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "",
+                    "percent": 0.25,
+                    "swallows": [
+                       {
+                       "class": "^Xfce4\\-terminal$"
+                        // "instance": "^xfce4\\-terminal$"
+                       // "title": "^i3\\-save\\-tree\\ \\-\\-workspace\\ 3\\ \\>\\ \\~\\/\\.dotfiles\\/config\\/i3\\/workspace\\-3\\.json\\ \\-\\ $",
+                       // "transient_for": "^$",
+                       // "window_role": "^xfce4\\-terminal\\-1533567442\\-\\-1800627452$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+        {
+            // splitv split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 410,
+                       "width": 657,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "",
+                    "percent": 0.130952380952381,
+                    "swallows": [
+                       {
+                       "class": "^Xfce4\\-terminal$"
+                       // "instance": "^xfce4\\-terminal$"
+                       // "title": "^sudo\\ htop\\ \\-\\ $",
+                       // "transient_for": "^$",
+                       // "window_role": "^xfce4\\-terminal\\-1533545116\\-1140694089$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    // tabbed split container with 1 children
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "tabbed",
+                    "percent": 0.869047619047619,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            // tabbed split container with 2 children
+                            "border": "pixel",
+                            "floating": "auto_off",
+                            "layout": "tabbed",
+                            "percent": 1,
+                            "type": "con",
+                            "nodes": [
+                                {
+                                    "border": "pixel",
+                                    "current_border_width": 3,
+                                    "floating": "auto_off",
+                                    "geometry": {
+                                       "height": 410,
+                                       "width": 657,
+                                       "x": 0,
+                                       "y": 0
+                                    },
+                                    "name": "",
+                                    "percent": 0.5,
+                                    "swallows": [
+                                       {
+                                       "class": "^Xfce4\\-terminal$"
+                                       //"instance": "^xfce4\\-terminal$"
+                                       // "title": "^\\.\\/indexing_orchestration\\.sh\\ \\-properties\\ gpdvt\\-scratchy\\-owner\\.properties\\.shelo\\ \\-\\ $",
+                                       // "transient_for": "^$",
+                                       // "window_role": "^xfce4\\-terminal\\-1533558719\\-1304880135$"
+                                       }
+                                    ],
+                                    "type": "con"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

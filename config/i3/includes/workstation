@@ -5,12 +5,12 @@
 # exec --no-startup-id xautolock -time 5 -locker i3lock-fancy -g
 
 # Init dual screen
-exec --no-startup-id xrandr --output HDMI2 --primary --auto --left-of VGA1
-workspace $ws1 output HDMI2
-workspace $ws2 output HDMI2
-workspace $ws3 output VGA1
-workspace $ws4 output VGA1
-workspace $ws5 output VGA1
+exec --no-startup-id xrandr --output DP1 --primary --left-of HDMI2 --auto
+workspace $ws1 output DP1
+workspace $ws2 output DP1
+workspace $ws3 output HDMI2
+workspace $ws4 output HDMI2
+workspace $ws5 output HDMI2
 
 # Restore nitrogen wallpaper
 exec --no-startup-id nitrogen --restore
@@ -19,6 +19,8 @@ exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id compton --config ~/.config/i3/compton.conf
 
 # Start two terminals
+exec --no-startup-id "i3-msg 'workspace \"3: \"; append_layout /home/gcornut/.config/i3/workspace-3.json'"
+exec i3-sensible-terminal
 exec i3-sensible-terminal
 exec i3-sensible-terminal
 
@@ -27,3 +29,8 @@ exec --no-startup-id nm-applet
 
 # Start synergy
 exec --no-startup-id synergy
+
+#exec --no-startup-id "i3-msg 'workspace \"1: \"; append_layout /home/gcornut/.config/i3/workspace-1.json'"
+#exec --no-startup-id chromium
+
+

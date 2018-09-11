@@ -158,6 +158,9 @@ function targz() {
 
 # Use jq and less to pretty print and color highligth json files with pagination
 hash jq &>/dev/null && {
+  function tailFjson() {
+    tail -F "$@" | jq -C '.'
+  }
   function lessjson() {
     jq -C '.' "$@" | less -R
   }
