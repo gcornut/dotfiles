@@ -5,7 +5,7 @@ set $ws4 "4: "
 set $ws5 "5: "
 
 # switch to workspace
-bindsym $mod+ampersand workspace $ws1; layout tabbed
+bindsym $mod+ampersand workspace $ws1
 bindsym $mod+eacute workspace $ws2; layout tabbed
 bindsym $mod+quotedbl workspace $ws3
 bindsym $mod+apostrophe workspace $ws4; layout tabbed
@@ -34,6 +34,7 @@ for_window [class="Chromium"] move to workspace $ws1
 for_window [class="jetbrains-idea-ce"] move to workspace $ws2
 for_window [class="jetbrains-pycharm-ce"] move to workspace $ws2
 for_window [class="Atom"] move to workspace $ws2
+for_window [class="libreoffice-calc"] move to workspace $ws2
 
 for_window [class="Xfce4-terminal"] move to workspace $ws3
 #for_window [class="jetbrains-idea-ce" title="^Debug -"] move to workspace $ws3

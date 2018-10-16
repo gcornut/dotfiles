@@ -7,6 +7,8 @@
     ~/.tmux.conf: config/tmux.conf
     ~/.config/i3: config/i3/
     ~/.config/rofi: config/rofi/
+    ~/.config/xfce4/terminal/terminalrc: config/xfce4/terminal/terminalrc
+    ~/.config/synergy.conf: config/synergy.conf
     ~/.config/htop/htoprc: config/htop/htoprc
     ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
     ~/.atom/keymap.cson: config/atom/keymap.cson
