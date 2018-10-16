@@ -22,8 +22,6 @@
             "swallows": [
                {
                 "class": "^Chromium$",
-               // "instance": "^crx_biiammgklaefagjclmnlialkmaemifgo$",
-               // "transient_for": "^$",
                 "window_role": "^pop\\-up$"
                }
             ],
@@ -44,9 +42,6 @@
             "swallows": [
                {
                 "class": "^Chromium$",
-               // "instance": "^chromium$",
-               // "title": "^\\[GNP\\-5110\\]\\ Phenotyping\\ variable\\ ontology\\ on\\ Elasticsearch\\ \\-\\ URGI\\ JIRA\\ \\–\\ Chromium$",
-               // "transient_for": "^$",
                 "window_role": "^browser$"
                }
             ],
@@ -54,4 +49,3 @@
         }
     ]
 }
-
